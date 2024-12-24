@@ -1,0 +1,9 @@
+.profileImage{
+    width: 100px;
+    height: 80px;
+    border-radius: 180px;
+    border:2px white groove;
+}
+.logout-btn{
+    height: 40px;
+}
