@@ -18,7 +18,8 @@ const  getSessionData = ()=>{
 
   useEffect(getSessionData,[]);
   return (
-    <div>
+    <div>  
+      
         <ProfileNav data={employee}/>
         <div className='row w-100'>
             <div className='col col-3 side-nav-container bg-secondary' >

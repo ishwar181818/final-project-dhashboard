@@ -6,22 +6,31 @@ import { useNavigate } from 'react-router-dom';
 function Login() {
   const {register,handleSubmit,reset,setValue,formState:{errors}}=useForm();
     const navigate    =     useNavigate();
-  const onLogin = data =>{
+  async function onLogin(data){
        if(data.isStaff){
-         axios.get(`http://localhost:8083/adm/verify/${data.username}/${data.password}`)
+          await axios.get(`http://localhost:8083/adm/verify/${data.username}/${data.password}`)
               .then(res=>{if(res.status===200){
                       console.log(res.data)
                       sessionStorage.setItem('user',JSON.stringify(res.data))
                      navigate('/easyfinance') 
               }})
-              .catch(error=>alert(error.response.data))
+              .catch(error=>alert(error.response.data.msg))
        }
        else{
-          alert("customer trying to login")
-
-          
+        await  axios.get(`http://localhost:8081/enq/verify/${data.username}/${data.password}`)
+        .then(res=>{if(res.status===200){
+          console.log(res.data)
+          sessionStorage.setItem('enquiry',JSON.stringify(res.data))
+          navigate('/easyfinance/customer') 
        }
-  }
+
+      })
+
+      .catch(error=>alert(error.response.data.msg));
+       }
+      };
+
+
   return (
     <div className='d-flex justify-content-center'>
           <div className='card w-50 mt-5 p-3'>

@@ -13,7 +13,8 @@ function Enquiries() {
     email: '',
     mobileno: '',
     pancard: '',
-    enquirystatus: ''
+    enquirystatus: '',
+    enquiryOpenOrClose: '' // New filter field for 'enquiryOpenOrClose'
   });
 
   // Fetch all enquiries from the backend
@@ -54,7 +55,8 @@ function Enquiries() {
         (filterCriteria.email === '' || enquiry.email.toLowerCase().includes(filterCriteria.email.toLowerCase())) &&
         (filterCriteria.mobileno === '' || enquiry.mobileno.toString().includes(filterCriteria.mobileno)) &&
         (filterCriteria.pancard === '' || enquiry.pancard.toLowerCase().includes(filterCriteria.pancard.toLowerCase())) &&
-        (filterCriteria.enquirystatus === '' || enquiry.enquirystatus.toLowerCase().includes(filterCriteria.enquirystatus.toLowerCase()))
+        (filterCriteria.enquirystatus === '' || enquiry.enquirystatus.toLowerCase().includes(filterCriteria.enquirystatus.toLowerCase())) &&
+        (filterCriteria.enquiryOpenOrClose === '' || enquiry.enquiryOpenOrClose.toLowerCase().includes(filterCriteria.enquiryOpenOrClose.toLowerCase())) // New filter logic
       );
     });
     setFilteredEnquiries(filteredData); // Update filtered data
@@ -139,6 +141,16 @@ function Enquiries() {
             onChange={handleFilterChange}
           />
         </div>
+        <div className="col">
+          <input
+            type="text"
+            className="form-control"
+            name="enquiryOpenOrClose"
+            placeholder="Filter by Open or Closed"
+            value={filters.enquiryOpenOrClose}
+            onChange={handleFilterChange}
+          />
+        </div>
       </div>
 
       {/* Enquiries Table */}
@@ -152,6 +164,7 @@ function Enquiries() {
             <th>Mobile No</th>
             <th>Pancard</th>
             <th>Enquiry Status</th>
+            <th>Enquiry Open/Close</th> {/* New column for enquiryOpenOrClose */}
           </tr>
         </thead>
         <tbody>
@@ -164,6 +177,7 @@ function Enquiries() {
               <td>{enquiry.mobileno}</td>
               <td>{enquiry.pancard}</td>
               <td>{enquiry.enquirystatus}</td>
+              <td>{enquiry.enquiryOpenOrClose}</td> {/* New field displayed in the table */}
             </tr>
           ))}
         </tbody>
