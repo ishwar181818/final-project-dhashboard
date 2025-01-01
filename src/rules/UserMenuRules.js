@@ -7,7 +7,9 @@ export const userMenus=[
      ADMIN:[
          {url:`${prefix}add-employee` , label:'Add Employee'},
          {url:`${prefix}view-employee` , label:'View Employee'},
-         {url:`${prefix}View-enquiries`, label:'View Enquiries'}   
+         {url:`${prefix}View-enquiries`, label:'View Enquiries'},
+         {url:`${prefix}admin-dashboard`, label:'Admin Dashboard'}
+
      ],
      CRM:[
          {url:`${prefix}view-new-enquiries`, label:'Registerd Enquiries'},

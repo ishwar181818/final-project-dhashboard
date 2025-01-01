@@ -91,7 +91,7 @@ function  getUpdatedEnquiry()
                 <Link className="btn btn-link" onClick={makeDisable} to={enquiry ? `/easyfinance/customer/view-loan/${enquiry.cid}` : '#'}>View Loan Application</Link>
                 <Link className="btn btn-link" onClick={makeDisable} to={enquiry ? `/easyfinance/customer/view-sanction/${enquiry.cid}` : '#'}>View Sanction</Link>
                 <Link className="btn btn-link"  onClick={makeDisable} to={enquiry ? `/easyfinance/customer/pay-emi/${enquiry.cid}` : '#'}>Pay EMI</Link>
-                <Link className="btn btn-link">EMI History</Link>
+                <Link className="btn btn-link" onClick={makeDisable} to={enquiry ? `/easyfinance/customer/emi-history/${enquiry.cid}` : '#'}>EMI History</Link>
     
 </nav>
 </div>

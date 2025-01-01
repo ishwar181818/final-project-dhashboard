@@ -34,20 +34,7 @@ const LoanApplications = () => {
   };
 
   // Function to update loan status to Sanctioned
-  const updateLoanStatusToSanctioned = (customerid) => {
-    axios.put(`http://localhost:8088/hm/set/${customerid}/Sanctioned`)
-      .then(response => {
-        const updatedLoan = response.data;
-        setLoanApplications(loanApplications.map(loan =>
-          loan.customerid === updatedLoan.customerid ? updatedLoan : loan
-        ));
-        alert(`Loan status for customer ID: ${customerid} has been updated to Sanctioned.`);
-      })
-      .catch(error => {
-        console.error("There was an error updating loan status to Sanctioned!", error);
-        setError("Error updating loan status to Sanctioned.");
-      });
-  };
+  
 
   return (
     <div>
@@ -81,15 +68,7 @@ const LoanApplications = () => {
                     </button>
                   )}
                   
-                  {/* Update Loan Status to Sanctioned Button */}
-                  {loan.loanstatus !== "Sanctioned" && (
-                    <button
-                      onClick={() => updateLoanStatusToSanctioned(loan.customerid)}
-                      className="btn btn-success ms-3"
-                    >
-                      Update to Sanctioned
-                    </button>
-                  )}
+                  
                 </td>
               </tr>
             ))}

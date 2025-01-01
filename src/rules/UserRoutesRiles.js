@@ -18,6 +18,7 @@ import LoanApplicationSanctionedData  from '../pages/Account Head/LoanApplicatio
 import LoanDisbursement from "../pages/Account Head/LoanDisbursement";
 import ViewLedger from "../pages/Account Head/ViewLedger";
 import ViewLedgerHistory from "../pages/Account Head/ViewLedgerHistory";
+import AdminDashboard from '../pages/employee/AdminDashBoard';
 
 
 
@@ -29,7 +30,9 @@ export const userRoutes=[
         {path:'view-employee' , component:<ViewAllEmployess/>},
         {path:'View-enquiries' , component:<ViewAllEnquiries/>},
         {path:'employee-enrollment/:userid', component:<EmployeeEnrollment/>},
-        {path:'employee-delete/:userid', component:<ViewAllEmployess/>}
+        {path:'employee-delete/:userid', component:<ViewAllEmployess/>},
+        {path:'admin-dashboard' , component:<AdminDashboard/>}
+
 
         
         ],

@@ -7,6 +7,7 @@ import ViewSingleEnquiry from '../pages/enquiry/ViewSingleEnquiry';
 import SanctionLetter from '../pages/sanction/SanctionLetter';
 import ViewSanctionLetter from '../pages/sanction/ViewSanctionLetter';
 import Payemi from '../pages/UserEmi/PayEmi';
+import EmiHistory from '../pages/UserEmi/EmiHistory';
 
 function CustomerLayout() {
 
@@ -36,6 +37,7 @@ useEffect(getLoginEnquiry,[]);
     <Route path="view-enquiry/:cid" element={<ViewSingleEnquiry/>} />
     <Route path="view-sanction/:cid" element={<ViewSanctionLetter/>} />
     <Route path="pay-emi/:cid" element={<Payemi/>} />
+    <Route path="emi-history/:cid" element={<EmiHistory/>} />
                     
     </Routes>
 
